@@ -1,0 +1,18 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /dev
+
+logging:
+  level:
+    root: WARN
+    com.company: DEBUG
+    org:
+      springframework:
+        security: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [ "env", "health", "info" ]

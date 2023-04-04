@@ -1,0 +1,28 @@
+server:
+  port: 8011
+
+logging:
+  level:
+    ROOT: WARN
+    com.company.akh: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [ "env", "health", "info" ]
+
+spring:
+  application:
+    name: api-server
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher #issue with swagger & actuator
+  cloud:
+    vault:
+      enabled: false
+    consul:
+      enabled: false

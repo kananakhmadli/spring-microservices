@@ -1,0 +1,213 @@
+2023-04-04 19:09:40.375  INFO [ms-backend,,] 11327 --- [main] c.c.akh.backend.ApplicationBackend       : Starting ApplicationBackend using Java 11.0.17 on Kanan-Akhmadli.local with PID 11327 (/Users/ahmadlikf/Documents/workspace/coding/spring-microservices/ms-backend/build/classes/java/main started by ahmadlikf in /Users/ahmadlikf/Documents/workspace/coding/spring-microservices)
+2023-04-04 19:09:40.376 DEBUG [ms-backend,,] 11327 --- [main] c.c.akh.backend.ApplicationBackend       : Running with Spring Boot v2.6.1, Spring v5.3.13
+2023-04-04 19:09:40.376  INFO [ms-backend,,] 11327 --- [main] c.c.akh.backend.ApplicationBackend       : The following profiles are active: local
+2023-04-04 19:09:43.995 ERROR [ms-backend,,] 11327 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+org.postgresql.util.PSQLException: FATAL: database "test" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2786) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:172) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:271) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:225) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.Driver.makeConnection(Driver.java:466) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.Driver.connect(Driver.java:265) ~[postgresql-42.3.1.jar:42.3.1]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:178) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:175) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.1.jar:2.6.1]
+	at com.company.akh.backend.ApplicationBackend.main(ApplicationBackend.java:26) ~[main/:na]
+
+2023-04-04 19:09:43.999  WARN [ms-backend,,] 11327 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+
+org.postgresql.util.PSQLException: FATAL: database "test" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2786) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:172) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:271) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:225) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.Driver.makeConnection(Driver.java:466) ~[postgresql-42.3.1.jar:42.3.1]
+	at org.postgresql.Driver.connect(Driver.java:265) ~[postgresql-42.3.1.jar:42.3.1]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:178) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:175) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.1.jar:2.6.1]
+	at com.company.akh.backend.ApplicationBackend.main(ApplicationBackend.java:26) ~[main/:na]
+
+2023-04-04 19:09:44.000 ERROR [ms-backend,,] 11327 --- [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+2023-04-04 19:09:44.001  WARN [ms-backend,,] 11327 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+2023-04-04 19:09:44.037 ERROR [ms-backend,,] 11327 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.1.jar:2.6.1]
+	at com.company.akh.backend.ApplicationBackend.main(ApplicationBackend.java:26) ~[main/:na]
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:178) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:175) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	... 14 common frames omitted
+Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:54) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:138) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	... 31 common frames omitted
+
+2023-04-04 19:11:31.590  INFO [ms-backend,,] 11571 --- [main] c.c.akh.backend.ApplicationBackend       : Starting ApplicationBackend using Java 11.0.17 on Kanan-Akhmadli.local with PID 11571 (/Users/ahmadlikf/Documents/workspace/coding/spring-microservices/ms-backend/build/classes/java/main started by ahmadlikf in /Users/ahmadlikf/Documents/workspace/coding/spring-microservices)
+2023-04-04 19:11:31.592 DEBUG [ms-backend,,] 11571 --- [main] c.c.akh.backend.ApplicationBackend       : Running with Spring Boot v2.6.1, Spring v5.3.13
+2023-04-04 19:11:31.592  INFO [ms-backend,,] 11571 --- [main] c.c.akh.backend.ApplicationBackend       : The following profiles are active: local
+2023-04-04 19:11:33.751  WARN [ms-backend,,] 11571 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-04-04 19:11:33.751  WARN [ms-backend,,] 11571 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "student" does not exist, skipping
+2023-04-04 19:11:34.036  WARN [ms-backend,,] 11571 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 19:11:34.331  WARN [ms-backend,a9e97b2c996c1d6f,a4b80bdb1813f538] 11571 --- [main] o.s.s.o.p.t.s.JwtAccessTokenConverter    : Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+2023-04-04 19:11:35.298  INFO [ms-backend,a9e97b2c996c1d6f,a4b80bdb1813f538] 11571 --- [main] c.c.akh.backend.ApplicationBackend       : Started ApplicationBackend in 4.027 seconds (JVM running for 4.493)
+2023-04-04 19:11:35.321  INFO [ms-backend,a9e97b2c996c1d6f,0a6bfa8a92591ad1] 11571 --- [main] c.c.akh.backend.ApplicationBackend       : User --> StudentDto(id=f87aa50d-17a6-4654-aae6-6be2af96b314, firstName=Kanan, lastName=Akhmadli, age=20, email=kanan.akhmadli@gmail.com, password=$2a$10$CkglAbSl5hw0Xr.YV0d7ueEk7aDK949eE9tOzepBoiLhEukj1imtW)
+2023-04-04 19:11:35.327  INFO [ms-backend,a9e97b2c996c1d6f,0a6bfa8a92591ad1] 11571 --- [main] c.c.akh.backend.ApplicationBackend       : Application 'ms-backend' is running! Access URLs: Local: http://localhost:8089/api External: http://127.0.0.1:8089/api Profile(s): [local]
+2023-04-04 19:15:40.775  INFO [ms-backend,120ae6c35a478bfd,120ae6c35a478bfd] 11571 --- [http-nio-8089-exec-4] c.company.akh.backend.filter.MyFilter1   : Filter1 is called
+2023-04-04 19:15:40.776  WARN [ms-backend,120ae6c35a478bfd,120ae6c35a478bfd] 11571 --- [http-nio-8089-exec-4] c.company.akh.backend.filter.MyFilter1   : You are using local profile
+2023-04-04 19:15:40.889  INFO [ms-backend,120ae6c35a478bfd,82cfdca59e29158f] 11571 --- [http-nio-8089-exec-4] c.c.a.b.s.CustomUserDetailsService       : StudentDto(id=f87aa50d-17a6-4654-aae6-6be2af96b314, firstName=Kanan, lastName=Akhmadli, age=20, email=kanan.akhmadli@gmail.com, password=$2a$10$CkglAbSl5hw0Xr.YV0d7ueEk7aDK949eE9tOzepBoiLhEukj1imtW)
+2023-04-04 19:15:40.891  INFO [ms-backend,120ae6c35a478bfd,82cfdca59e29158f] 11571 --- [http-nio-8089-exec-4] c.c.a.b.s.CustomUserDetailsService       : [ADMIN]
+2023-04-04 19:15:40.891  INFO [ms-backend,120ae6c35a478bfd,82cfdca59e29158f] 11571 --- [http-nio-8089-exec-4] c.c.a.b.s.CustomUserDetailsService       : ++++++++++++++++++++++++++++++++++++++++++++++++
+2023-04-04 19:15:48.167  INFO [ms-backend,480e03df0cd90164,480e03df0cd90164] 11571 --- [http-nio-8089-exec-5] c.company.akh.backend.filter.MyFilter1   : Filter1 is called
+2023-04-04 19:15:48.167  WARN [ms-backend,480e03df0cd90164,480e03df0cd90164] 11571 --- [http-nio-8089-exec-5] c.company.akh.backend.filter.MyFilter1   : You are using local profile
+2023-04-04 19:15:48.191  INFO [ms-backend,480e03df0cd90164,480e03df0cd90164] 11571 --- [http-nio-8089-exec-5] c.c.akh.backend.service.StudentService   : getStudents methods is called
+2023-04-04 19:16:12.206  INFO [ms-backend,d1569721f99003de,d1569721f99003de] 11571 --- [http-nio-8089-exec-6] c.company.akh.backend.filter.MyFilter1   : Filter1 is called
+2023-04-04 19:16:12.207  WARN [ms-backend,d1569721f99003de,d1569721f99003de] 11571 --- [http-nio-8089-exec-6] c.company.akh.backend.filter.MyFilter1   : You are using local profile
+2023-04-04 19:16:12.218  WARN [ms-backend,d1569721f99003de,99d323ddc4881ddc] 11571 --- [http-nio-8089-exec-6] o.s.s.o.provider.endpoint.TokenEndpoint  : Handling error: InternalAuthenticationServiceException, null
+2023-04-04 19:16:17.101  INFO [ms-backend,279655bc1bb6cbf7,279655bc1bb6cbf7] 11571 --- [http-nio-8089-exec-7] c.company.akh.backend.filter.MyFilter1   : Filter1 is called
+2023-04-04 19:16:17.101  WARN [ms-backend,279655bc1bb6cbf7,279655bc1bb6cbf7] 11571 --- [http-nio-8089-exec-7] c.company.akh.backend.filter.MyFilter1   : You are using local profile
+2023-04-04 19:16:17.110  INFO [ms-backend,279655bc1bb6cbf7,7e1ca70855565e1e] 11571 --- [http-nio-8089-exec-7] c.c.a.b.s.CustomUserDetailsService       : StudentDto(id=f87aa50d-17a6-4654-aae6-6be2af96b314, firstName=Kanan, lastName=Akhmadli, age=20, email=kanan.akhmadli@gmail.com, password=$2a$10$CkglAbSl5hw0Xr.YV0d7ueEk7aDK949eE9tOzepBoiLhEukj1imtW)
+2023-04-04 19:16:17.110  INFO [ms-backend,279655bc1bb6cbf7,7e1ca70855565e1e] 11571 --- [http-nio-8089-exec-7] c.c.a.b.s.CustomUserDetailsService       : [ADMIN]
+2023-04-04 19:16:17.110  INFO [ms-backend,279655bc1bb6cbf7,7e1ca70855565e1e] 11571 --- [http-nio-8089-exec-7] c.c.a.b.s.CustomUserDetailsService       : ++++++++++++++++++++++++++++++++++++++++++++++++
+2023-04-04 19:16:40.767  INFO [ms-backend,d2947c80ef04c9dd,d2947c80ef04c9dd] 11571 --- [http-nio-8089-exec-8] c.company.akh.backend.filter.MyFilter1   : Filter1 is called
+2023-04-04 19:16:40.768  WARN [ms-backend,d2947c80ef04c9dd,d2947c80ef04c9dd] 11571 --- [http-nio-8089-exec-8] c.company.akh.backend.filter.MyFilter1   : You are using local profile
+2023-04-04 19:16:40.797  INFO [ms-backend,d2947c80ef04c9dd,9e3efecca66af694] 11571 --- [http-nio-8089-exec-8] c.c.a.b.s.CustomUserDetailsService       : StudentDto(id=f87aa50d-17a6-4654-aae6-6be2af96b314, firstName=Kanan, lastName=Akhmadli, age=20, email=kanan.akhmadli@gmail.com, password=$2a$10$CkglAbSl5hw0Xr.YV0d7ueEk7aDK949eE9tOzepBoiLhEukj1imtW)
+2023-04-04 19:16:40.797  INFO [ms-backend,d2947c80ef04c9dd,9e3efecca66af694] 11571 --- [http-nio-8089-exec-8] c.c.a.b.s.CustomUserDetailsService       : [ADMIN]
+2023-04-04 19:16:40.797  INFO [ms-backend,d2947c80ef04c9dd,9e3efecca66af694] 11571 --- [http-nio-8089-exec-8] c.c.a.b.s.CustomUserDetailsService       : ++++++++++++++++++++++++++++++++++++++++++++++++
+2023-04-04 19:17:02.989  INFO [ms-backend,67a1a78af5c92b62,67a1a78af5c92b62] 11571 --- [http-nio-8089-exec-9] c.company.akh.backend.filter.MyFilter1   : Filter1 is called
+2023-04-04 19:17:02.991  WARN [ms-backend,67a1a78af5c92b62,67a1a78af5c92b62] 11571 --- [http-nio-8089-exec-9] c.company.akh.backend.filter.MyFilter1   : You are using local profile
+2023-04-04 19:17:03.013  WARN [ms-backend,67a1a78af5c92b62,d70612eb9739de1c] 11571 --- [http-nio-8089-exec-9] o.s.s.o.provider.endpoint.TokenEndpoint  : Handling error: InternalAuthenticationServiceException, null
+2023-04-04 19:20:15.182  INFO [ms-backend,775de5bae92ae00e,775de5bae92ae00e] 11571 --- [http-nio-8089-exec-1] c.company.akh.backend.filter.MyFilter1   : Filter1 is called
+2023-04-04 19:20:15.183  WARN [ms-backend,775de5bae92ae00e,775de5bae92ae00e] 11571 --- [http-nio-8089-exec-1] c.company.akh.backend.filter.MyFilter1   : You are using local profile
+2023-04-04 19:20:15.209  INFO [ms-backend,775de5bae92ae00e,47f015e95aff6b01] 11571 --- [http-nio-8089-exec-1] c.c.a.b.s.CustomUserDetailsService       : StudentDto(id=492788ae-4988-43b9-bb6f-610cca17acad, firstName=Huseyin, lastName=Huseyinli, age=21, email=huseyin.huseyinli@gmail.com, password=$2a$10$FZcoum.3ye3nkAhdPTP/ne18Ekq3aO8jaeiZuKDJHxLLoyLwMrl4K)
+2023-04-04 19:20:15.209  INFO [ms-backend,775de5bae92ae00e,47f015e95aff6b01] 11571 --- [http-nio-8089-exec-1] c.c.a.b.s.CustomUserDetailsService       : [ADMIN]
+2023-04-04 19:20:15.209  INFO [ms-backend,775de5bae92ae00e,47f015e95aff6b01] 11571 --- [http-nio-8089-exec-1] c.c.a.b.s.CustomUserDetailsService       : ++++++++++++++++++++++++++++++++++++++++++++++++
+2023-04-04 19:20:37.759  INFO [ms-backend,8036694774768f1c,8036694774768f1c] 11571 --- [http-nio-8089-exec-3] c.company.akh.backend.filter.MyFilter1   : Filter1 is called
+2023-04-04 19:20:37.760  WARN [ms-backend,8036694774768f1c,8036694774768f1c] 11571 --- [http-nio-8089-exec-3] c.company.akh.backend.filter.MyFilter1   : You are using local profile
+2023-04-04 19:20:37.799  INFO [ms-backend,8036694774768f1c,5d9f606d709077e1] 11571 --- [http-nio-8089-exec-3] c.c.a.b.s.CustomUserDetailsService       : StudentDto(id=3a2fdca3-657a-4cbf-82c2-9a1154309a00, firstName=Taleh, lastName=Qasimli, age=19, email=taleh.qasimli@gmail.com, password=$2a$12$FtcANvpQWOVkQzDgqAb5BOIhYTorI7uBiivVEpDKnIWx/EOpVhI0K)
+2023-04-04 19:20:37.799  INFO [ms-backend,8036694774768f1c,5d9f606d709077e1] 11571 --- [http-nio-8089-exec-3] c.c.a.b.s.CustomUserDetailsService       : [ADMIN]
+2023-04-04 19:20:37.799  INFO [ms-backend,8036694774768f1c,5d9f606d709077e1] 11571 --- [http-nio-8089-exec-3] c.c.a.b.s.CustomUserDetailsService       : ++++++++++++++++++++++++++++++++++++++++++++++++
+2023-04-04 19:20:46.861  INFO [ms-backend,5281be6adec4e695,5281be6adec4e695] 11571 --- [http-nio-8089-exec-4] c.company.akh.backend.filter.MyFilter1   : Filter1 is called
+2023-04-04 19:20:46.862  WARN [ms-backend,5281be6adec4e695,5281be6adec4e695] 11571 --- [http-nio-8089-exec-4] c.company.akh.backend.filter.MyFilter1   : You are using local profile
+2023-04-04 19:20:46.891  INFO [ms-backend,5281be6adec4e695,0a511a20ff386f95] 11571 --- [http-nio-8089-exec-4] c.c.a.b.s.CustomUserDetailsService       : StudentDto(id=3a2fdca3-657a-4cbf-82c2-9a1154309a00, firstName=Taleh, lastName=Qasimli, age=19, email=taleh.qasimli@gmail.com, password=$2a$12$FtcANvpQWOVkQzDgqAb5BOIhYTorI7uBiivVEpDKnIWx/EOpVhI0K)
+2023-04-04 19:20:46.891  INFO [ms-backend,5281be6adec4e695,0a511a20ff386f95] 11571 --- [http-nio-8089-exec-4] c.c.a.b.s.CustomUserDetailsService       : [ADMIN]
+2023-04-04 19:20:46.891  INFO [ms-backend,5281be6adec4e695,0a511a20ff386f95] 11571 --- [http-nio-8089-exec-4] c.c.a.b.s.CustomUserDetailsService       : ++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,9 @@
+rootProject.name = 'spring-microservices'
+
+include 'ms-client'
+include 'ms-server'
+include 'spring-jpa'
+include 'ms-backend'
+include 'spring-postgres'
+include 'spring-dockerization'
+

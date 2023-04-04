@@ -1,0 +1,68 @@
+server:
+  port: 8012
+
+logging:
+  level:
+    ROOT: WARN
+    com.company.akh: DEBUG
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 20000
+      api-server:
+        connectTimeout: 5000
+        readTimeout: 2000
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: [ "env", "health", "info", "prometheus" ]
+
+spring:
+  application:
+    name: api-client
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher #issue with swagger & actuator
+  cloud:
+    vault:
+      enabled: false
+    consul:
+      enabled: false
+
+service:
+  api-server:
+    url: "http://localhost:8011"
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      demo:
+        registerHealthIndicator: true
+        # configs for close state
+        sliding-window-type: count_based
+        failure-rate-threshold: 70.0
+        sliding-window-size: 4
+        # configs for open state
+        wait-duration-in-open-state: 14000
+        # configs for hal-open state
+        automatic-transition-from-open-to-half-open-enabled: true
+        permitted-number-of-calls-in-half-open-state: 2
+        max-wait-duration-in-half-open-state: 10000
+        # configs for slow calls
+        slow-call-duration-threshold: 2000
+        slow-call-rate-threshold: 90.0
+        # configs for handling exceptions

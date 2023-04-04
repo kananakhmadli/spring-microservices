@@ -1,0 +1,15 @@
+server:
+  port: 8091
+  servlet:
+    context-path: /prod
+
+logging:
+  level:
+    root: WARN
+    com.company: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [ "env", "health", "info" ]
