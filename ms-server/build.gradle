@@ -2,7 +2,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'io.github.resilience4j:resilience4j-spring-cloud2'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-    implementation "az.kapitalbank.atlas:lib-common:${libCommonVersion}"
+    implementation "az.kapitalbank.atlas:lib-common:2.0.9"
     implementation 'io.micrometer:micrometer-registry-prometheus'
     implementation "io.github.openfeign:feign-jackson:${feignVersion}"
     implementation "io.github.openfeign:feign-annotation-error-decoder:${feignVersion}"

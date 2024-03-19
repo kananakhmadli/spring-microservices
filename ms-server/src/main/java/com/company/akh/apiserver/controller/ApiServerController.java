@@ -26,7 +26,7 @@ public class ApiServerController {
 
         if (Objects.nonNull(exceptionName)) {
             if ("service".equals(exceptionName)) {
-                throw ServiceException.of(ErrorCodes.CUSTOMER_NOT_FOUND, "Customer not found");
+                throw ServiceException.of(ErrorCodes.CUSTOMER_NOT_FOUND);
             } else if ("timeout".equals(exceptionName)) {
                 var timoutHappened = new SocketTimeoutException("Timeout happened");
                 throw new Exception(timoutHappened);

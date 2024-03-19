@@ -6,4 +6,5 @@ include 'spring-jpa'
 include 'ms-backend'
 include 'spring-postgres'
 include 'spring-dockerization'
+include 'spring-security'
 

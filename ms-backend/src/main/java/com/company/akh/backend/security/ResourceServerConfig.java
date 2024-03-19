@@ -21,9 +21,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
-        resources
-                .resourceId(resourceId)
-                .tokenServices(tokenServices);
+        resources.resourceId(resourceId).tokenServices(tokenServices);
     }
 
     @Override

@@ -5,6 +5,7 @@ logging:
   level:
     ROOT: WARN
     com.company.akh: DEBUG
+    az.kapitalbank.atlas: INFO
 
 feign:
   client:
@@ -42,6 +43,11 @@ spring:
       enabled: false
     consul:
       enabled: false
+  redis:
+    host: 127.0.0.1
+#    host: 10.242.143.85
+    port: 6379
+    timeout: 1000
 
 service:
   api-server:

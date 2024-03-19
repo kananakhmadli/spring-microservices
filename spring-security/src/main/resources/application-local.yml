@@ -1,0 +1,28 @@
+server:
+  port: 8021
+
+logging:
+  level:
+    ROOT: WARN
+    com.company.akh.security: DEBUG
+
+spring:
+  application:
+    name: spring-security
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher #issue with swagger & actuator
+  cloud:
+    vault:
+      enabled: false
+    consul:
+      enabled: false
+
+  security:
+    user:
+      name: kanan
+      password: "{noop}kanan"
+      roles: ADMIN
