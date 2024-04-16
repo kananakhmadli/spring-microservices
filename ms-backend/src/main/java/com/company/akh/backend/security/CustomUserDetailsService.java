@@ -1,36 +1,32 @@
 package com.company.akh.backend.security;
 
-import com.company.akh.backend.service.StudentService;
+import com.company.akh.backend.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.userdetails.User.UserBuilder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final StudentService studentService;
+    private final StudentRepository studentRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        var student = studentService.findByEmail(email);
-        UserBuilder builder;
-        log.info(student.toString());
-        builder = org.springframework.security.core.userdetails.User.withUsername(email);
-        builder.disabled(false);
-        builder.password(student.getPassword());
-        String[] authorities = {"ADMIN"};
-        log.info(Arrays.toString(authorities));
-        log.info("++++++++++++++++++++++++++++++++++++++++++++++++");
-        builder.authorities(authorities);
-        return builder.build();
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        var student = studentRepository.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException(username));
+
+        log.info("Logged in user: {}", student);
+        return User.builder()
+                .username(username)
+                .password(student.getPassword())
+                .roles("ADMIN", "test")
+                .build();
     }
 
 }

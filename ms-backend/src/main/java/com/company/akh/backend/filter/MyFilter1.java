@@ -24,7 +24,9 @@ public class MyFilter1 implements Filter {
     private String message;
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest,
+                         ServletResponse servletResponse,
+                         FilterChain filterChain) throws IOException, ServletException {
         log.info("Filter1 is called");
         log.warn(message);
         filterChain.doFilter(servletRequest, servletResponse);

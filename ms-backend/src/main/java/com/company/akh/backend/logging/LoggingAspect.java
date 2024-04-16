@@ -27,8 +27,8 @@ public class LoggingAspect {
         // for aop
     }
 
-    @Pointcut("within(com.company.controller.*)" +
-            " || within(com.company.service.*)")
+    @Pointcut("within(com.company.akh.backend.controller.*)" +
+            " || within(com.company.akh.backend..service.*)")
     public void applicationPackagePointcut() {
         // for aop
     }

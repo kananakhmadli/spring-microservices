@@ -5,7 +5,7 @@ server:
 
 logging:
   level:
-    root: WARN
+    root: DEBUG
     com.company: DEBUG
 #    org:
 #      springframework:
@@ -31,7 +31,7 @@ spring:
     consul:
       enabled: false
   datasource:
-    url: "jdbc:postgresql://localhost:5431/test"
+    url: "jdbc:h2:mem:testdb"
     username: "moon"
     password: "moon"
   main:
@@ -44,6 +44,9 @@ spring:
   sql:
     init:
       mode: always
+  h2:
+    console:
+      enabled: true
 
 api:
   message: 'You are using ${spring.profiles.active} profile'

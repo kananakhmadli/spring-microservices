@@ -1,14 +1,15 @@
 package com.company.akh.backend.controller;
 
+import com.company.akh.backend.dto.StudentDto;
+import com.company.akh.backend.dto.StudentFilter;
 import com.company.akh.backend.dto.request.CreateStudentRequest;
 import com.company.akh.backend.dto.request.UpdateStudentRequest;
-import com.company.akh.backend.dto.response.RestResponse;
-import com.company.akh.backend.mapper.RestResponseMapper;
+import com.company.akh.backend.dto.response.CreateStudentResponse;
 import com.company.akh.backend.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 import javax.validation.Valid;
+import java.util.List;
 
 @Validated
 @RestController
@@ -31,7 +33,6 @@ import javax.validation.Valid;
 public class StudentController {
 
     private final StudentService studentService;
-    private final RestResponseMapper responseMapper;
 
     @PostConstruct
     public void init() {
@@ -41,7 +42,7 @@ public class StudentController {
         student1.setAge(21);
         student1.setEmail("huseyin.huseyinli@gmail.com");
         student1.setPassword("12345");
-        studentService.addStudent(student1);
+        studentService.create(student1);
 
         var student2 = new CreateStudentRequest();
         student2.setFirstName("Kanan");
@@ -49,74 +50,58 @@ public class StudentController {
         student2.setAge(20);
         student2.setEmail("kanan.akhmadli@gmail.com");
         student2.setPassword("12345");
-        studentService.addStudent(student2);
-    }
-
-    @GetMapping(value = "v1/students")
-    public ResponseEntity<RestResponse> getStudent() {
-        var users = studentService.getStudents();
-        return ResponseEntity.ok((responseMapper.toResponse(users, "getting all students")));
-    }
-
-    @GetMapping(value = "v1/students/{id}")
-    public ResponseEntity<RestResponse> getStudent(@PathVariable(required = false) String id) {
-        var userDto = studentService.getById(id);
-        return ResponseEntity.ok((responseMapper.toResponse(userDto, "getting student")));
-    }
-
-    @GetMapping(value = "v1/student")
-    public ResponseEntity<RestResponse> search(
-            @RequestParam(name = "name", required = false) String firstName,
-            @RequestParam(name = "surname", required = false) String lastName) {
-        var userDtoList = studentService.search(firstName, lastName);
-        return ResponseEntity.ok((responseMapper.toResponse(userDtoList, "searching student")));
-    }
-
-    //http://localhost:8089/api/v1/students/pagination/v1?page=0&size=2
-    @GetMapping(value = "v1/students/pagination/v1")
-    public ResponseEntity<RestResponse> pagination(
-            @RequestParam("page") Integer page,
-            @RequestParam("size") Integer size) {
-        var slice = studentService.pagination(page, size);
-        return ResponseEntity.ok((responseMapper.toResponse(slice, "getting pageable1")));
-    }
-
-    //http://localhost:8089/api/v1/students/pagination/v2?page=0&size=2
-    @GetMapping(value = "v1/students/pagination/v2")
-    public ResponseEntity<RestResponse> pagination(Pageable pageable) {
-        var slice = studentService.pagination(pageable);
-        return ResponseEntity.ok((responseMapper.toResponse(slice, "getting pageable2")));
-    }
-
-    @GetMapping(value = "v1/test1")
-    public ResponseEntity<RestResponse> test1() {
-        var users2 = studentService.getStudent2();
-        return ResponseEntity.ok((responseMapper.toResponse(users2, "getting all students with mapper")));
+        studentService.create(student2);
     }
 
     @PostMapping(value = "v1/students")
-    public ResponseEntity<RestResponse> addStudent(@Valid @RequestBody CreateStudentRequest request) {
-        var userResponseDto = studentService.addStudent(request);
-        return ResponseEntity.ok(responseMapper.toResponse(userResponseDto, "Successfully added new student"));
+    public CreateStudentResponse create(@Valid @RequestBody CreateStudentRequest request) {
+        return studentService.create(request);
     }
 
     @PutMapping(value = "v1/students")
-    public ResponseEntity<RestResponse> updateStudent(@RequestBody UpdateStudentRequest request) {
-        studentService.updateStudent(request);
-        return ResponseEntity.ok(responseMapper.toResponse(null, "Successfully updated"));
+    public void update(@RequestBody UpdateStudentRequest request) {
+        studentService.update(request);
     }
 
     @DeleteMapping("v1/students/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<RestResponse> removeStudent(@PathVariable String id) {
-        var userDto = studentService.removeStudent(id);
-        return ResponseEntity.ok(responseMapper.toResponse(userDto, "Successfully deleted"));
+    public void deleteById(@PathVariable String id) {
+        studentService.deleteById(id);
     }
 
     @DeleteMapping("v1/students")
-    public ResponseEntity<RestResponse> removeStudents() {
-        studentService.removeAll();
-        return ResponseEntity.ok(responseMapper.toResponse(null, "Successfully deleted all students"));
+    public void deleteAll() {
+        studentService.deleteAll();
+    }
+
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @GetMapping(value = "v1/students")
+    public List<StudentDto> getAll() {
+        return studentService.getAll();
+    }
+
+    @GetMapping(value = "v1/students/{id}")
+    public StudentDto getById(@PathVariable String id) {
+        return studentService.getById(id);
+    }
+
+    @GetMapping(value = "v1/students/search")
+    public List<StudentDto> search(StudentFilter filter) {
+        return studentService.search(filter);
+    }
+
+    //http://localhost:8089/api/v1/students/pagination/v1?page=0&size=2
+    @GetMapping(value = "v1/students/pagination/v1")
+    public List<StudentDto> pagination(
+            @RequestParam("page") Integer page,
+            @RequestParam("size") Integer size) {
+        return studentService.pagination(page, size);
+    }
+
+    //http://localhost:8089/api/v1/students/pagination/v2?page=0&size=2
+    @GetMapping(value = "v1/students/pagination/v2")
+    public List<StudentDto> pagination(Pageable pageable) {
+        return studentService.pagination(pageable);
     }
 
 }
