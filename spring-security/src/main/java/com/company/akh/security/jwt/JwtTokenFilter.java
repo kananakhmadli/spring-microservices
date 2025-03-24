@@ -1,10 +1,9 @@
-package com.company.akh.security.config11;
+package com.company.akh.security.jwt;
 
+import com.company.akh.security.jwt.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@Component
 @RequiredArgsConstructor
 class JwtTokenFilter extends OncePerRequestFilter {
 
@@ -24,7 +22,6 @@ class JwtTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest httpServletRequest,
                                     HttpServletResponse httpServletResponse,
                                     FilterChain chain) throws ServletException, IOException {
-
         final String authorizationHeader = httpServletRequest.getHeader("Authorization");
         if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
             chain.doFilter(httpServletRequest, httpServletResponse);

@@ -1,4 +1,4 @@
-package com.company.akh.security.config11;
+/*package com.company.akh.security.jwt;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -24,15 +24,11 @@ class JwtAuthenticationProvider implements AuthenticationProvider {
         String password = String.valueOf(authentication.getCredentials());
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-
-        if (userDetails != null) {
-            if (passwordEncoder.matches(password, userDetails.getPassword())) {
-                return new UsernamePasswordAuthenticationToken(
-                        username, password, userDetails.getAuthorities());
-            }
+        if (!passwordEncoder.matches(password, userDetails.getPassword())) {
+            throw new BadCredentialsException("Error!!");
         }
 
-        throw new BadCredentialsException("Error!!");
+        return authentication;
     }
 
     @Override
@@ -41,3 +37,4 @@ class JwtAuthenticationProvider implements AuthenticationProvider {
     }
 
 }
+ */

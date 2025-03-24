@@ -3,7 +3,7 @@ server:
 
 logging:
   level:
-    ROOT: WARN
+    ROOT: DEBUG
     com.company.akh.security: DEBUG
 
 spring:
@@ -20,7 +20,8 @@ spring:
       enabled: false
     consul:
       enabled: false
-
+  main:
+    allow-circular-references: true
   security:
     user:
       name: kanan

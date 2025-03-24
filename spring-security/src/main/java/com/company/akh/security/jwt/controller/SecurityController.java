@@ -1,6 +1,7 @@
-package com.company.akh.security.config11.controller;
+package com.company.akh.security.jwt.controller;
 
-import com.company.akh.security.config11.JwtUtil;
+import com.company.akh.security.jwt.dto.LoginRequest;
+import com.company.akh.security.jwt.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("/security")
 @RequiredArgsConstructor
-public class Home {
+public class SecurityController {
 
     private final JwtUtil jwtUtil;
     private final AuthenticationManager authenticationManager;

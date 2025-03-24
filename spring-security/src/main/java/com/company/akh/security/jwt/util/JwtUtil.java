@@ -1,4 +1,4 @@
-package com.company.akh.security.config11;
+package com.company.akh.security.jwt.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

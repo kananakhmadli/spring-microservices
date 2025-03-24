@@ -1,4 +1,4 @@
-package com.company.akh.security.config11.controller;
+package com.company.akh.security.jwt.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
